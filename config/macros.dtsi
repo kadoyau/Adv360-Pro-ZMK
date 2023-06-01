@@ -2,7 +2,7 @@ macro_kana_on: macro_kana_on{
 compatible = "zmk,behavior-macro";
 label = "macro_kana_on";
 #binding-cells = <0>;
-/* 4: layer_MAC_KANA */
+/* 5: layer_DVORAK_JP */
 bindings = <&to 5>, <&kp RCMD>;
 };
 macro_kana_off: macro_kana_off{
@@ -11,6 +11,20 @@ label = "macro_kana_off";
 #binding-cells = <0>;
 /* 0: default_layer */
 bindings = <&to 0>, <&kp LCMD>;
+};
+macro_kana_on_win: macro_kana_on_win{
+compatible = "zmk,behavior-macro";
+label = "macro_kana_on_win";
+#binding-cells = <0>;
+/* 5: layer_DVORAK_JP_WIN */
+bindings = <&to 6>, <&kp INT_HENKAN>;
+};
+macro_kana_off_win: macro_kana_off_win{
+compatible = "zmk,behavior-macro";
+label = "macro_kana_off_win";
+#binding-cells = <0>;
+/* 4: layer_WIN */
+bindings = <&to 4>, <&kp INT_MUHENKAN>;
 };
 macro_quotes: macro_quotes{
 compatible = "zmk,behavior-macro";

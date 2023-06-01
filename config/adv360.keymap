@@ -47,6 +47,22 @@
         flavor = "hold-preferred";
         bindings = <&kp>, <&macro_kana_off>;
     };
+    whtkon: win_hold_tap_kana_on {
+        compatible = "zmk,behavior-hold-tap";
+        label = "WIN_HOLD_TAP_KANA_ON";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        flavor = "hold-preferred";
+        bindings = <&kp>, <&macro_kana_on_win>;
+    };
+    whtkoff: win_hold_tap_kana_off {
+        compatible = "zmk,behavior-hold-tap";
+        label = "WIN_HOLD_TAP_KANA_OFF";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        flavor = "hold-preferred";
+        bindings = <&kp>, <&macro_kana_off_win>;
+    };
   };
 
     keymap {
@@ -57,8 +73,8 @@
             bindings = <
       &kp LBKT     &kp N1     &kp N2    &kp N3     &kp N4  &kp N5               &tog 1                                                                                       &mo 3  &kp N6  &kp N7    &kp N8    &kp N9     &kp N0   &kp RBKT
        &kp TAB    &kp SQT  &kp COMMA   &kp DOT      &kp P   &kp Y               &tog 4                                                                                       &none   &kp F   &kp G     &kp C     &kp R      &kp L   &kp BSLH
- &mt LCTRL ESC      &kp A      &kp O     &kp E      &kp U   &kp I                &none   &htkoff LCMD 0        &kp LALT   &none   &none        &kp LGUI   &htkon RCMD 0      &none   &kp D   &kp H     &kp T     &kp N      &kp S  &kp MINUS
-     &kp LSHFT   &kp SEMI      &kp Q     &kp J      &kp K   &kp X                &none            &none  &kp LANGUAGE_1   &none   &none  &kp LANGUAGE_2           &none      &none   &kp B   &kp M     &kp W     &kp V      &kp Z  &kp RSHFT
+ &mt LCTRL ESC      &kp A      &kp O     &kp E      &kp U   &kp I               &kp INT_HENKAN   &htkoff LCMD 0        &kp LALT   &none   &none        &kp LGUI   &htkon RCMD 0      &none   &kp D   &kp H     &kp T     &kp N      &kp S  &kp MINUS
+     &kp LSHFT   &kp SEMI      &kp Q     &kp J      &kp K   &kp X               &kp INT_MUHENKAN           &none  &kp LANGUAGE_1   &none   &none  &kp LANGUAGE_2           &none      &none   &kp B   &kp M     &kp W     &kp V      &kp Z  &kp RSHFT
          &mo 2  &kp GRAVE   &kp CAPS  &kp LEFT  &kp RIGHT                    &kp SPACE         &kp BSPC    &kp LEFT_ALT                   &kp RIGHT_ALT         &kp TAB  &kp ENTER          &kp UP  &kp DOWN  &kp FSLH  &kp EQUAL      &mo 2
             >;
         };
@@ -95,15 +111,15 @@
 
         layer_WIN {
             bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans  &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans           &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans                  &trans          &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-        layer_MAC_KANA {
+        layer_DVORAK_JP {
             bindings = <
  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans   &kp K  &trans  &trans  &trans
@@ -111,6 +127,15 @@
  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
+        };
+        layer_DVORAK_JP_WIN {
+            bindings = <
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans   &kp K  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans  &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans           &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans                  &trans          &trans  &trans          &trans  &trans  &trans  &trans  &trans
+             >;
         };
     };
 };
