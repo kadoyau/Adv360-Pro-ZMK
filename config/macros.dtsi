@@ -2,12 +2,14 @@ macro_kana_on: macro_kana_on{
 compatible = "zmk,behavior-macro";
 label = "macro_kana_on";
 #binding-cells = <0>;
+/* 4: layer_MAC_KANA */
 bindings = <&to 4>, <&kp RCMD>;
 };
 macro_kana_off: macro_kana_off{
 compatible = "zmk,behavior-macro";
 label = "macro_kana_off";
 #binding-cells = <0>;
+/* 0: default_layer */
 bindings = <&to 0>, <&kp LCMD>;
 };
 macro_quotes: macro_quotes{
