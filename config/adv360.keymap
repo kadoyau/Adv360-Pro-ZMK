@@ -122,11 +122,11 @@
 
         layer_WIN {
             bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans  &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans           &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans                  &trans          &trans  &trans          &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans    &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans           &trans   &trans  &trans  &trans  &kp RCMD           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans           &trans   &trans                  &trans             &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -141,11 +141,11 @@
         };
         layer_DVORAK_JP_WIN {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                     &trans  &trans  &trans   &korc  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans  &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans            &trans  &trans  &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans                    &trans            &trans  &trans                  &trans           &trans  &trans          &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                        &trans  &trans  &trans   &korc  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans     &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans            &trans  &trans  &trans  &trans  &kp RCMD            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans                    &trans            &trans  &trans                  &trans              &trans  &trans          &trans  &trans  &trans  &trans  &trans
              >;
         };
     };
