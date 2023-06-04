@@ -67,6 +67,13 @@
         flavor = "hold-preferred";
         bindings = <&kp>, <&macro_kana_off_win>;
     };
+    korc: k_or_c {
+        compatible = "zmk,behavior-mod-morph";
+        label = "K_OR_C";
+        #binding-cells = <0>;
+        bindings = <&kp K>, <&kp LC(C)>;
+        mods = <(MOD_LCTL | MOD_RCTL)>;
+    };
   };
 
     keymap {
@@ -125,20 +132,20 @@
 
         layer_DVORAK_JP {
             bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans   &kp K  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans   &kp K  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
         layer_DVORAK_JP_WIN {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                   &trans  &trans  &trans   &kp K  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                                     &trans  &trans  &trans   &korc  &trans  &trans  &trans
   &trans  &trans  &trans  &trans  &trans  &trans            &trans  &whtkoff LCTRL 0  &trans  &trans  &trans  &trans  &whtkon RCTRL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans            &trans           &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans                  &trans          &trans  &trans          &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans            &trans            &trans  &trans  &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans                    &trans            &trans  &trans                  &trans           &trans  &trans          &trans  &trans  &trans  &trans  &trans
              >;
         };
     };
