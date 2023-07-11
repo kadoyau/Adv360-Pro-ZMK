@@ -22,6 +22,15 @@
 #define LAYER_DVORAK_JP 5
 #define LAYER_DVORAK_JP_WIN 6
 
+#define BEHAVIOR_MOD_MORPH(NAME, LABEL, BIND1, BIND2, MODS) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-mod-morph"; \
+        label = LABEL; \
+        #binding-cells = <0>; \
+        bindings = <BIND1>, <BIND2>; \
+        mods = <MODS>; \
+    };
+
 / {
   behaviors {
     #include "macros.dtsi"
@@ -67,27 +76,9 @@
         flavor = "hold-preferred";
         bindings = <&kp>, <&macro_kana_off_win>;
     };
-    korc: k_or_c {
-        compatible = "zmk,behavior-mod-morph";
-        label = "K_OR_C";
-        #binding-cells = <0>;
-        bindings = <&kp K>, <&kp LG(C)>;
-        mods = <(MOD_LGUI | MOD_RGUI)>;
-    };
-    wkorc: win_k_or_c {
-        compatible = "zmk,behavior-mod-morph";
-        label = "WIN_K_OR_C";
-        #binding-cells = <0>;
-        bindings = <&kp K>, <&kp LC(C)>;
-        mods = <(MOD_LCTL | MOD_RCTL)>;
-    };
-    gort: grave_or_tilde {
-        compatible = "zmk,behavior-mod-morph";
-        label = "GRAVE_OR_TILDE";
-        #binding-cells = <0>;
-        bindings = <&kp GRAVE>, <&kp TILDE>;
-        mods = <(MOD_LSFT | MOD_RSFT)>;
-    };
+    BEHAVIOR_MOD_MORPH(korc, "K_OR_C", &kp K, &kp LG(C), (MOD_LGUI | MOD_RGUI))
+    BEHAVIOR_MOD_MORPH(wkorc, "WIN_K_OR_C", &kp K, &kp LC(C), (MOD_LCTL | MOD_RCTL))
+    BEHAVIOR_MOD_MORPH(gort, "GRAVE_OR_TILDE", &kp GRAVE, &kp TILDE, (MOD_LSFT | MOD_RSFT))
   };
 
     keymap {
@@ -96,11 +87,11 @@
 
         default_layer {
             bindings = <
-      &kp LBKT     &kp N1     &kp N2    &kp N3     &kp N4  &kp N5               &tog 1                                                                                       &mo 3  &kp N6  &kp N7    &kp N8    &kp N9     &kp N0   &kp RBKT
-       &kp TAB    &kp SQT  &kp COMMA   &kp DOT      &kp P   &kp Y               &tog 4                                                                                       &none   &kp F   &kp G     &kp C     &kp R      &kp L   &kp BSLH
- &mt LCTRL ESC      &kp A      &kp O     &kp E      &kp U   &kp I               &kp INT_HENKAN   &htkoff LCMD 0        &kp LALT   &none   &none        &kp LGUI   &htkon RCMD 0      &none   &kp D   &kp H     &kp T     &kp N      &kp S  &kp MINUS
-     &kp LSHFT   &kp SEMI      &kp Q     &kp J      &kp K   &kp X               &kp INT_MUHENKAN           &none  &kp LANGUAGE_1   &none   &none  &kp LANGUAGE_2           &none      &none   &kp B   &kp M     &kp W     &kp V      &kp Z  &kp RSHFT
-         &mo 2      &gort   &kp CAPS  &kp LEFT  &kp RIGHT                    &kp SPACE         &kp BSPC    &kp LEFT_ALT                   &kp RIGHT_ALT         &kp TAB  &kp ENTER          &kp UP  &kp DOWN  &kp FSLH  &kp EQUAL      &mo 2
+      &kp LBKT     &kp N1       &kp N2    &kp N3     &kp N4  &kp N5               &tog 1                                                                                               &mo 3     &kp N6    &kp N7      &kp N8      &kp N9       &kp N0   &kp RBKT
+       &kp TAB    &kp SQT    &kp COMMA   &kp DOT      &kp P   &kp Y               &tog 4                                                                                               &none     &kp F     &kp G       &kp C       &kp R        &kp L    &kp BSLH
+ &mt LCTRL ESC      &kp A        &kp O     &kp E      &kp U   &kp I               &kp INT_HENKAN   &htkoff LCMD 0        &kp LALT   &none   &none        &kp LGUI   &htkon RCMD 0      &none     &kp D     &kp H       &kp T       &kp N        &kp S    &kp MINUS
+     &kp LSHFT   &kp SEMI        &kp Q     &kp J      &kp K   &kp X               &kp INT_MUHENKAN          &none  &kp LANGUAGE_1   &none   &none  &kp LANGUAGE_2           &none      &none     &kp B     &kp M       &kp W       &kp V        &kp Z    &kp RSHFT
+         &mo 2      &gort     &kp CAPS  &kp LEFT  &kp RIGHT                       &kp SPACE              &kp BSPC    &kp LEFT_ALT                   &kp RIGHT_ALT         &kp TAB  &kp ENTER    &kp UP  &kp DOWN    &kp FSLH   &kp EQUAL        &mo 2
             >;
         };
 
