@@ -19,9 +19,12 @@
 #include <dt-bindings/zmk/backlight.h>
 
 #define LAYER_DEFAULT 0
-#define LAYER_WIN 4
-#define LAYER_DVORAK_JP 5
-#define LAYER_DVORAK_JP_WIN 6
+#define LAYER_KEYPAD 1
+#define LAYER_MOD 2
+#define LAYER_WIN 3
+#define LAYER_DVORAK_JP 4
+#define LAYER_DVORAK_JP_WIN 5
+#define LAYER_FUNCTION 6
 
 #define BEHAVIOR_MOD_MORPH(NAME, LABEL, BIND1, BIND2, MODS) \
     NAME: NAME { \
@@ -97,31 +100,21 @@
 
         default_layer {
             bindings = <
-      &kp LBKT     &kp N1       &kp N2    &kp N3     &kp N4  &kp N5               &tog 1                                                                                               &mo 3     &kp N6    &kp N7      &kp N8      &kp N9       &kp N0   &kp RBKT
-       &kp TAB    &kp SQT    &kp COMMA   &kp DOT      &kp P   &kp Y               &tog 4                                                                                               &none     &kp F     &kp G       &kp C       &kp R        &kp L    &kp BSLH
+      &kp LBKT     &kp N1       &kp N2    &kp N3     &kp N4  &kp N5               &tog 1                                                                                       &mo LAYER_MOD     &kp N6    &kp N7      &kp N8      &kp N9       &kp N0   &kp RBKT
+       &kp TAB    &kp SQT    &kp COMMA   &kp DOT      &kp P   &kp Y               &tog LAYER_WIN                                                                                 &none     &kp F     &kp G       &kp C       &kp R        &kp L    &kp BSLH
  &mt LCTRL ESC      &kp A        &kp O     &kp E      &kp U   &kp I               &kp INT_HENKAN   &htkoff LCMD 0        &kp LALT   &none   &none        &kp LGUI   &htkon RCMD 0      &none     &kp D     &kp H       &kp T       &kp N        &kp S    &kp MINUS
      &kp LSHFT   &kp SEMI        &kp Q     &kp J      &kp K   &kp X               &kp INT_MUHENKAN          &none  &kp LANGUAGE_1   &none   &none  &kp LANGUAGE_2           &none      &none     &kp B     &kp M       &kp W       &kp V        &kp Z    &kp RSHFT
-         &mo 2      &gort     &kp CAPS  &kp LEFT  &kp RIGHT                       &kp SPACE              &kp BSPC    &kp LEFT_ALT                   &kp RIGHT_ALT         &kp TAB  &kp ENTER    &kp UP  &kp DOWN    &kp FSLH   &kp EQUAL        &mo 2
+ &mo LAYER_FUNCTION       &gort     &kp CAPS  &kp LEFT  &kp RIGHT                       &kp SPACE              &kp BSPC    &kp LEFT_ALT                   &kp RIGHT_ALT         &kp TAB  &kp ENTER    &kp UP  &kp DOWN    &kp FSLH   &kp EQUAL        &mo LAYER_FUNCTION
             >;
         };
 
         layer_keypad {
             bindings = <
-    &kp EQUAL      &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &trans                                                                 &mo 3  &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
-      &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               &none                                                                 &none   &kp Y   &kp KP_N7     &kp KP_N8      &kp KP_N9     &kp KP_MINUS   &kp BSLH
-&mt LCTRL ESC      &kp A     &kp S     &kp D      &kp F   &kp G               &none  &kp LCTRL  &kp LALT   &none   &none   &kp LGUI  &kp RCTRL      &none   &kp H   &kp KP_N4     &kp KP_N5      &kp KP_N6      &kp KP_PLUS  &kp MINUS
-    &kp LSHFT      &kp Z     &kp X     &kp C      &kp V   &kp B               &none      &none  &kp HOME   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1     &kp KP_N2      &kp KP_N3     &kp KP_ENTER  &kp RSHFT
-        &mo 2      &gort  &kp CAPS  &kp LEFT  &kp RIGHT                    &kp SPACE &kp BSPC   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0              &kp UP      &kp DOWN     &kp KP_DOT         &kp RBKT      &mo 2
-            >;
-        };
-
-        layer_fn {
-            bindings = <
- &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
- &trans  &trans  &trans  &trans  &trans  &trans             &none                                                   &none  &trans  &trans  &trans   &trans   &trans   &trans
- &trans  &trans  &trans  &trans  &trans  &trans             &none  &trans  &trans   &none   &none  &trans  &trans   &none  &trans  &trans  &trans   &trans   &trans   &trans
- &trans  &trans  &trans  &trans  &trans  &trans             &none   &none  &trans   &none   &none  &trans   &none   &none  &trans  &trans  &trans   &trans   &trans   &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans   &trans   &trans   &trans
+    &kp EQUAL      &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &trans                                                                     &mo LAYER_MOD   &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
+      &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               &none                                                                      &none           &kp Y   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp BSLH
+&mt LCTRL ESC      &kp A     &kp S     &kp D      &kp F   &kp G               &none      &kp LCTRL  &kp LALT   &none   &none   &kp LGUI   &kp RCTRL      &none           &kp H   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &kp MINUS
+    &kp LSHFT      &kp Z     &kp X     &kp C      &kp V   &kp B               &none      &none      &kp HOME   &none   &none   &kp PG_UP      &none      &none           &kp N   &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &kp RSHFT
+ &mo LAYER_FUNCTION      &gort     &kp CAPS  &kp LEFT   &kp RIGHT                   &kp SPACE  &kp BSPC   &kp END                    &kp PG_DN  &kp ENTER      &kp KP_N0       &kp UP  &kp DOWN    &kp KP_DOT    &kp RBKT       &mo LAYER_FUNCTION
             >;
         };
 
@@ -154,6 +147,7 @@
     &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
+
         layer_DVORAK_JP_WIN {
             bindings = <
   &kp RIGHT_BRACKET  &trans  &WIN2  &trans  &trans  &trans             &trans                                                                        &trans  &WIN6   &WIN7   &WIN8   &WIN9   &WIN0     &kp NON_US_HASH
@@ -162,6 +156,16 @@
   &trans             &scOco  &trans  &trans  &trans  &trans            &trans            &trans  &trans  &trans  &trans  &kp RCMD            &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
   &trans             &bqOti  &trans  &trans  &trans                    &trans            &trans  &trans                  &trans              &trans  &trans          &trans  &trans  &trans  &eqOplus  &trans
              >;
+        };
+
+        layer_fn {
+            bindings = <
+ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog LAYER_KEYPAD                                        &mo LAYER_MOD  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+ &trans  &trans  &trans  &trans  &trans  &trans             &none                                                   &none          &trans  &trans  &trans  &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans             &none  &trans  &trans   &none   &none  &trans  &trans   &none          &trans  &trans  &trans  &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans             &none   &none  &trans   &none   &none  &trans   &none   &none          &trans  &trans  &trans  &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans   &trans
+            >;
         };
     };
 };
